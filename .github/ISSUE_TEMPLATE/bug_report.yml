@@ -1,0 +1,27 @@
+name: Bug report
+description: Report a reproducible workflow problem
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: textarea
+    attributes:
+      label: Description
+      description: What happened and what did you expect?
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: SAGFlow version or commit
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Nextflow version and profile
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Command and redacted log
+      description: Remove credentials, personal identifiers, and controlled paths.
+    validations:
+      required: true

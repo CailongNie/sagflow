@@ -1,0 +1,10 @@
+process {
+    executor = 'slurm'
+    queue = 'YOUR_PARTITION'
+    clusterOptions = '--account=YOUR_ACCOUNT'
+}
+
+executor {
+    queueSize = 100
+    submitRateLimit = '10 sec'
+}

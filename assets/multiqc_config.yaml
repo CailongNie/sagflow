@@ -1,0 +1,13 @@
+title: "SAGFlow quality-control report"
+subtitle: "Single-amplified genome analysis"
+intro_text: >-
+  This report summarises read QC, competitive mapping, SAG assembly, genome
+  quality, contamination screening, and taxonomy. Missing values are not
+  interpreted as negative biological evidence.
+show_analysis_paths: false
+show_analysis_time: true
+export_plots: true
+data_format: tsv
+report_comment: >-
+  SAG assignment and co-assembly candidates require independent biological
+  validation before strain-level interpretation.

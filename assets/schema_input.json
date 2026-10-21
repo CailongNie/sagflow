@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAGFlow samplesheet",
+  "description": "One row per paired-read SAG input.",
+  "type": "array",
+  "minItems": 1,
+  "items": {
+    "type": "object",
+    "required": ["sample_id", "dataset", "barcode", "r1", "r2"],
+    "properties": {
+      "sample_id": {"type": "string", "minLength": 1},
+      "dataset": {"type": "string", "minLength": 1},
+      "barcode": {"type": "string", "minLength": 1},
+      "r1": {"type": "string", "format": "file-path"},
+      "r2": {"type": "string", "format": "file-path"},
+      "ont": {"type": "string"},
+      "group": {"type": "string"},
+      "expected_target": {"type": "string"}
+    },
+    "additionalProperties": false
+  }
+}

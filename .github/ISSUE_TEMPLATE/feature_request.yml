@@ -1,0 +1,20 @@
+name: Feature request
+description: Propose a new module or scientific capability
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    attributes:
+      label: Scientific use case
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Proposed inputs, outputs, and evidence gates
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Upstream software and primary documentation
+    validations:
+      required: true

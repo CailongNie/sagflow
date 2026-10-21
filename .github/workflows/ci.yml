@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - uses: nf-core/setup-nextflow@v2
+        with:
+          version: '25.04.7'
+
+      - name: Validate JSON and Python
+        run: |
+          python -m json.tool nextflow_schema.json >/dev/null
+          python -m unittest discover -s tests/unit -p 'test_*.py'
+          python bin/validate_samplesheet.py --input tests/data/samplesheet.csv
+
+      - name: Resolve configuration
+        run: nextflow config -profile test >/dev/null
+
+      - name: Run stub workflow
+        run: |
+          nextflow run . -profile test -stub-run \
+            --outdir "$RUNNER_TEMP/sagflow-stub-${GITHUB_RUN_ID}"

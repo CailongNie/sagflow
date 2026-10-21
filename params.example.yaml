@@ -1,0 +1,14 @@
+input: /absolute/path/to/samplesheet.csv
+outdir: /absolute/path/to/new/results/run_001
+reference_panel: /absolute/path/to/references/drep128.prefixed.fa
+min_mapq: 20
+skip_fastqc: false
+skip_competitive_mapping: false
+skip_assembly: false
+skip_checkm2: false
+checkm2_db: /absolute/path/to/checkm2/uniref100.KO.1.dmnd
+skip_gunc: false
+gunc_db: /absolute/path/to/gunc/gunc_db_progenomes2.1.dmnd
+skip_gtdbtk: false
+gtdbtk_data_path: /absolute/path/to/gtdbtk/release
+skip_multiqc: false

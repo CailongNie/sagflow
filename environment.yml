@@ -1,0 +1,12 @@
+name: sagflow-dev
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.11
+  - nextflow>=25.04.0
+  - nf-core>=3.3
+  - nf-test>=0.9
+  - pre-commit
+  - yamllint

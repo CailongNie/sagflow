@@ -1,0 +1,3 @@
+sample_id,dataset,barcode,r1,r2,ont,group,expected_target
+TEST_SAG_01,test,BC001,tests/data/TEST_SAG_01_R1.fastq,tests/data/TEST_SAG_01_R2.fastq,,test_group,test_ref
+TEST_SAG_02,test,BC002,tests/data/TEST_SAG_01_R1.fastq,tests/data/TEST_SAG_01_R2.fastq,,test_group,test_ref

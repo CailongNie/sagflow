@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAGFlow parameters",
+  "description": "Parameters for the SAGFlow single-amplified genome workflow.",
+  "type": "object",
+  "$defs": {
+    "input_output": {
+      "title": "Input/output",
+      "type": "object",
+      "required": ["input", "outdir"],
+      "properties": {
+        "input": {
+          "type": "string",
+          "format": "file-path",
+          "schema": "assets/schema_input.json",
+          "pattern": "^\\S+\\.csv$",
+          "description": "CSV samplesheet."
+        },
+        "outdir": {
+          "type": "string",
+          "format": "directory-path",
+          "description": "New, non-existing output directory."
+        },
+        "reference_panel": {
+          "type": ["string", "null"],
+          "format": "file-path",
+          "description": "Optional contig-prefixed competitive reference FASTA."
+        }
+      }
+    },
+    "analysis": {
+      "title": "Analysis options",
+      "type": "object",
+      "properties": {
+        "min_mapq": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 60,
+          "default": 20
+        },
+        "skip_fastqc": {"type": "boolean", "default": false},
+        "skip_competitive_mapping": {"type": "boolean", "default": false},
+        "skip_assembly": {"type": "boolean", "default": false},
+        "skip_checkm2": {"type": "boolean", "default": true},
+        "skip_gunc": {"type": "boolean", "default": true},
+        "skip_gtdbtk": {"type": "boolean", "default": true},
+        "skip_multiqc": {"type": "boolean", "default": false}
+      }
+    },
+    "databases": {
+      "title": "Database paths",
+      "type": "object",
+      "properties": {
+        "checkm2_db": {"type": ["string", "null"], "format": "file-path"},
+        "gunc_db": {"type": ["string", "null"], "format": "file-path"},
+        "gtdbtk_data_path": {"type": ["string", "null"], "format": "directory-path"}
+      }
+    }
+  },
+  "allOf": [
+    {"$ref": "#/$defs/input_output"},
+    {"$ref": "#/$defs/analysis"},
+    {"$ref": "#/$defs/databases"}
+  ]
+}
